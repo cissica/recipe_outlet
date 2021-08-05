@@ -1,6 +1,7 @@
+require "pry"
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :update, :destroy]
-
+  skip_before_action :require_login, only: [:create]
   # GET /recipes
   def index
     @recipes = Recipe.all
@@ -15,8 +16,9 @@ class RecipesController < ApplicationController
 
   # POST /recipes
   def create
+    # binding.pry
     @recipe = Recipe.new(recipe_params)
-
+    
     if @recipe.save
       render json: @recipe, status: :created, location: @recipe
     else
@@ -46,6 +48,9 @@ class RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit(:title, :summary, :ingredients, :servings, :time)
+      
+        params.permit(:title, :summary, :ingredients, :servings, :time, :instructions)
+     
+      # params.permit(:title, :summary, :ingredients, :servings, :time)
     end
 end

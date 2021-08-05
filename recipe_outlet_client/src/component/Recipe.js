@@ -1,8 +1,24 @@
 import { useParams } from "react-router-dom"
 
 const Recipe = (props) => {
+    
     const { id } = useParams();
-    console.log(props)
+    
+    const recipe = props.recipes.filter(recipe => recipe.id === parseInt(id)).map(filteredRecipe => ({
+        title: filteredRecipe.title,
+        summary: filteredRecipe.summary,
+        ingredients: filteredRecipe.extendedIngredients.map(({amount, unit, name}) => (
+            [amount, unit, name].join([])    
+        )).toString(),
+        servings: filteredRecipe.servings, 
+        time: filteredRecipe.readyInMinutes,
+        instructions: filteredRecipe.instructions
+    }))
+    
+    const onTrigger = (e) => {
+        props.handleCallback(recipe);
+        e.preventDefault();
+    }
 
     return ( 
         <div className="recipe-details" key={id}>
@@ -20,6 +36,7 @@ const Recipe = (props) => {
                        <li>{amount}{unit} of {name}</li>
                    ))}
                </div>
+               <button onClick={onTrigger}>Add To Favorites</button>
            </article>
            ))}
         </div>

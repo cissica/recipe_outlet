@@ -4,10 +4,12 @@ import Home from './component/Home'
 import Recipe from './containers/Recipe';
 import Recipes from './containers/Recipes';
 import Navbar from './Navbar';
-import Register from './component/Register';
+import Account from './containers/Account';
+import UserFavorites from './containers/UserFavorites'
 
 
-function App() {
+
+const App = () => {
   return (
     <Router>
     <div className="App">
@@ -20,18 +22,14 @@ function App() {
           <Route exact path="/recipes">
             <Recipes/>
           </Route>
-          <Route path="/recipes/:id">
-            <Recipe/>
+          <Route path="/recipes/:id" render={(props) => (
+            <Recipe id={props.match.params.id}/>)}/>
+          <Route path="/userFaves">
+            <UserFavorites/>
           </Route>
-          {/* <Route path="/account/:id">
-            <AccountContainer/>
-          </Route> */}
-         <Route path="/register">
-            <Register/>
-          </Route>
-          {/* <Route path="/login">
-            <Login/>
-          </Route> */} 
+          <Route path="/register">
+            <Account/>
+          </Route> 
           </Switch>
           </div>
     </div>

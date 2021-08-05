@@ -58,21 +58,21 @@
   text-decoration: none;
 }
 
-.create {
+.create, .signup{
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
 }
-.create label {
+.create label, .signup label{
   text-align: left;
   display: block;
 }
-.create h2 {
+.create h2 .signup h2{
   font-size: 20px;
   color: wheat;
   margin-bottom: 30px;
 }
-.create input, .create select {
+.create input, .create select, .signup input, .signup select{
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
@@ -80,11 +80,16 @@
   box-sizing: border-box;
   display: block;
 }
-.create button {
+.create button, .signup button{
   background: salmon;
   color: #fff;
   border: 0;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.accountAuth{
+  display:flex; 
+  flex-direction:row;
 }
