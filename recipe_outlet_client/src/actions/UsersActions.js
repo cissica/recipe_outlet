@@ -14,7 +14,6 @@ export function saveUser(data){
 }
 
 export function logUser(data){
-    console.log("hello")
     return (dispatch) => {
         fetch("http://localhost:3000/login", {
             method: 'POST',

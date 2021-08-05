@@ -6,7 +6,6 @@ const Register = (props) =>{
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const history = useHistory();
-    console.log(name, password)
 
     const handleNameChange = (e) => {
         setName(e.target.value);

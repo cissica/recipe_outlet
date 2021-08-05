@@ -14,7 +14,6 @@ const UserFavorites = (props) => {
     const faves = props.recipes
 
     useEffect(() => {
-      console.log(currentUserId)
         const token = localStorage.getItem("token")
         if(token){
           fetch(`http://localhost:3000/auto_login`, {
@@ -44,7 +43,9 @@ const UserFavorites = (props) => {
             { !userStatus &&
             <div>
                 <h2>Looks like you're not logged in!</h2>
+                <br/>
                 <h3>If you would like to save recipes to view again later, please log in or register. You won't regret it!</h3>
+                <br/>
                 <Link to="/register">Count me in.</Link>
             </div>
 

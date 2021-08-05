@@ -1,6 +1,5 @@
 export function fetchFaves(user) {
     return (dispatch) => {
-        console.log("hiya")
       dispatch({ type: 'START_ADDING_FAVES_REQUEST' });
       fetch(`http://localhost:3000/favorites/${user}`, {
         "method": "GET",
