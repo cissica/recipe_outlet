@@ -23,18 +23,19 @@ const Register = (props) =>{
         setName("")
         setPassword("")
         window.alert("Thank you for signing up.")
-        history.push("/userFaves")
+        history.push("/recipes")
     }
         
         return ( 
             <div className="signup">
-            <h2>Register Form</h2>
-            <form onSubmit={handleSubmit}> 
+            <h2>Register</h2>
+            <br/>
+            <form classname="form" onSubmit={handleSubmit}> 
                 <label>Name:</label>
                 <input type="text" required value={name} onChange={handleNameChange} name="name" />
                 <label>Password:</label>
                 <input type="password" required value={password} onChange={handlePasswordChange} name="password" />
-                <input type="submit" value="Create Account"/>
+                <button type="submit" value="Create Account">Create Account</button>
             </form>
         </div>
          );

@@ -1,5 +1,6 @@
 export function saveUser(data){
     return (dispatch) => {
+        dispatch({ type: 'START_ADDING_USER_REQUEST' });
         fetch("http://localhost:3000/users", {
             method: 'POST',
             body: JSON.stringify(data),
@@ -15,6 +16,7 @@ export function saveUser(data){
 
 export function logUser(data){
     return (dispatch) => {
+        dispatch({ type: 'START_ADDING_USER_REQUEST' });
         fetch("http://localhost:3000/login", {
             method: 'POST',
             body: JSON.stringify(data),

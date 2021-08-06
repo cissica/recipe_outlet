@@ -12,8 +12,8 @@ class Recipes extends Component {
     render() { 
         
         return ( 
-            <div>
-            <h2>Recipes container</h2>
+            <div className="recipes">
+            <h1>Recipes</h1>
             <RecipesList recipes={this.props.recipes} requesting={this.props.requesting}/>
             </div>
          );

@@ -12,7 +12,7 @@ const RecipesList = (props) => {
             {recipes && recipes.map(({title, id, servings, readyInMinutes, image}) => (
                 <div className="recipe-preview" key={id}>
                     <Link to={`/recipes/${id}`}>
-                    <img src={image} alt={title} />
+                    <img className="image" src={image} alt={title} />
                     <h2>{title}</h2>
                     <p>Servings: {servings}</p>
                     <p>Time to make: {readyInMinutes} Minutes</p>   

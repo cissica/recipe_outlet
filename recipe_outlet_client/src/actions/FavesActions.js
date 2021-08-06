@@ -22,3 +22,10 @@ export function createFave(data){
         }
     })
 }
+
+export const logoutUser = () => ({
+    type: 'CLEAR_FAVES',
+    user: {},
+    token: "",
+    loggedIn: false
+})
