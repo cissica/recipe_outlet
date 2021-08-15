@@ -13,7 +13,6 @@ class Recipes extends Component {
         
         return ( 
             <div className="recipes">
-            <h1>Recipes</h1>
             <RecipesList recipes={this.props.recipes} requesting={this.props.requesting}/>
             </div>
          );

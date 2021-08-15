@@ -25,10 +25,9 @@ export function logUser(data){
             }
         })
     .then(resp => resp.json())
-    .then(data => dispatch({type: "ADD_USER", user: data.user, token: data.jwt}));
-        // dispatch(loginUser(data)));
+    .then(data => dispatch({type: "ADD_USER", user: data.user, token: data.jwt}))
+    // .catch((error) => console.log(error))
     }
-
 }
 
 export function loggedInStatus(){
@@ -50,3 +49,11 @@ export const logoutUser = () => ({
     token: "",
     loggedIn: false
 })
+
+// function CheckError(response) {
+//     if (response.status >= 200 && response.status <= 299) {
+//       return response.json();
+//     } else {
+//       throw Error(response.statusText);
+//     }
+//   }

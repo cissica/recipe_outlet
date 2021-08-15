@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
   def show
     # binding.pry
     favorites = []
-    arr = Favorite.where(params[:id])
+    arr = Favorite.where(user_id: params[:id])
     arr.each do |item|
       r = item.recipe
       favorites << r 

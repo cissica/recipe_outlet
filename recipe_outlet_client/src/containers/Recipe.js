@@ -22,8 +22,7 @@ class RecipeContainer extends Component {
     })
     .then(response => response.json())
     .then(data => this.setState({recipe_id: data.id}, () => {
-        const data = { recipe_id: this.state.recipe_id, user_id: this.props.user.id } 
-        console.log(data)
+        const data = { recipe_id: this.state.recipe_id, user_id: this.props.user[0].id } 
         createFave(data)
         window.alert("Recipe added to My Account.")
     }))
@@ -31,7 +30,6 @@ class RecipeContainer extends Component {
     }
 
     handleCallback = (recipeData) =>{
-        console.log(recipeData[0])
         this.setState({recipe: recipeData[0]}, () => 
         this.addRecipe())   
     }
@@ -42,7 +40,7 @@ class RecipeContainer extends Component {
     
         return ( 
             <div>
-                <h2>Recipes</h2>
+                <h2>Happy Cooking!</h2>
                 <Recipe recipes={this.props.recipes} handleCallback={this.handleCallback}/>
             </div>
          );

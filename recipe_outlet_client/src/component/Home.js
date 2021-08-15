@@ -1,10 +1,13 @@
+import React from 'react';
+import Slideshow from './Slideshow';
+
 const Home = () => {
   
     return (
       <div className="home">
-        <h1>Home</h1>
+         <Slideshow/>
         <br />
-        <h2>Welcome to GroceryRun!</h2>
+        <h1>Welcome to GroceryRun!</h1>
         <article>Please feel free to browse for some delicious recipes. You can also signup and add recipes to your account as a staple for those quick grocery runs.</article>
       </div>
       );

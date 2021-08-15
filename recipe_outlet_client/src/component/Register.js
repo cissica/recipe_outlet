@@ -30,11 +30,11 @@ const Register = (props) =>{
             <div className="signup">
             <h2>Register</h2>
             <br/>
-            <form classname="form" onSubmit={handleSubmit}> 
+            <form autocomplete="false" className="form" onSubmit={handleSubmit}> 
                 <label>Name:</label>
                 <input type="text" required value={name} onChange={handleNameChange} name="name" />
                 <label>Password:</label>
-                <input type="password" required value={password} onChange={handlePasswordChange} name="password" />
+                <input type="password" required value={password} onChange={handlePasswordChange} name="password"  />
                 <button type="submit" value="Create Account">Create Account</button>
             </form>
         </div>

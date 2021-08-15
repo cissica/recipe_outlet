@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
 import { loggedInStatus, loginUser, logoutUser } from '../actions/UsersActions';
+import { logoutUserFaves } from '../actions/FavesActions';
 import { Link } from 'react-router-dom'
 import { fetchFaves } from '../actions/FavesActions';
 import Faves from '../component/Faves';
@@ -13,10 +14,7 @@ const UserFavorites = (props) => {
     const faves = props.recipes
     
     useEffect(() => {
-      console.log(props)
-        const currentUserId = props.user.id
         const token = localStorage.getItem("token")
-        console.log(token)
         if(token){
           fetch(`http://localhost:3000/auto_login`, {
             headers: {
@@ -29,15 +27,19 @@ const UserFavorites = (props) => {
             loggedInStatus();
           })
         }
-        props.fetchFaves(currentUserId)
-      }, [])
+        if(userStatus === true){
+          const currentUserId = props.user.id
+          props.fetchFaves(currentUserId)
+        }
+      }, )
     
 
     const handleClick = e => {
-        e.preventDefault()
+        e.preventDefault();
         localStorage.clear();
-        props.logoutUser()
-        history.push("/")
+        props.logoutUser();
+        props.logoutUserFaves();
+        history.push("/");
       }
   
         return ( 
@@ -50,14 +52,13 @@ const UserFavorites = (props) => {
                 <br/>
                 <Link to="/register">Count me in.</Link>
             </div>
-
             }
             
             { userStatus && 
             <div>
                 <h2>Hello Welcome Back!</h2>
+                <button className="favebutton" onClick={handleClick}>Log Out</button>
                 <Faves faves={faves}/>
-                <button onClick={handleClick}>Log Out</button>
             </div>
             }
                 
@@ -73,8 +74,8 @@ function mapStateToProps(state){
     return {
         recipes: state.favorites.recipes,
         token: state.user.token,
-        user: state.user.user,
+        user: state.user.user[0],
         loggedIn: state.user.loggedIn
     }
 }
-export default connect(mapStateToProps, { loginUser, loggedInStatus, fetchFaves, logoutUser })(UserFavorites);
+export default connect(mapStateToProps, { loginUser, loggedInStatus, fetchFaves, logoutUser, logoutUserFaves })(UserFavorites);

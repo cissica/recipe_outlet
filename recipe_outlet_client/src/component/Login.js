@@ -30,7 +30,7 @@ const Login = (props) => {
             <div className="create">
                 <h2>Login</h2>
                 <br/>
-                <form classname="form" onSubmit={handleSubmit}>
+                <form className="form" onSubmit={handleSubmit}>
                     <label>Name:</label>
                     <input type="text" required value={name} onChange={handleNameChange} name="name"/>
                     <label>Password:</label>

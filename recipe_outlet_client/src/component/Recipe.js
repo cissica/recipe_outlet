@@ -1,7 +1,9 @@
+import React from 'react';
 import { useParams } from "react-router-dom"
+import parse from 'html-react-parser';
 
 const Recipe = (props) => {
-    
+
     const { id } = useParams();
     
     const recipe = props.recipes.filter(recipe => recipe.id === parseInt(id)).map(filteredRecipe => ({
@@ -24,19 +26,23 @@ const Recipe = (props) => {
         <div className="recipe-details" key={id}>
            {props.recipes.filter(recipe => recipe.id === parseInt(id)).map(filteredRecipe => (
             <article>
-               <h2> {filteredRecipe.title} </h2> 
+                <button className="favebutton" onClick={onTrigger}>Add To Favorites</button>
+               <br/>
+               <h2> {filteredRecipe.title} </h2>
                <br/>
                <h4>This recipe makes a total of {filteredRecipe.servings} servings.</h4>
                <br/>
-                <p>{filteredRecipe.summary}</p>
+               <p>{filteredRecipe.summary !== null ? parse(filteredRecipe.summary) : filteredRecipe.summary}</p>
                <br/>
-               <p> {filteredRecipe.instructions} </p>
-               <div>
+               <p> {filteredRecipe.instructions !== null ? parse(filteredRecipe.instructions) : filteredRecipe.instructions} </p>
+               <br/>
+               <div className="ingredients">
                    {filteredRecipe.extendedIngredients.map(({amount, unit, name}) => (
                        <li>{amount}{unit} of {name}</li>
                    ))}
                </div>
-               <button onClick={onTrigger}>Add To Favorites</button>
+               <br/>
+            
            </article>
            ))}
         </div>

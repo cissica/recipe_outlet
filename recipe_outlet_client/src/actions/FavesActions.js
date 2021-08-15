@@ -4,6 +4,7 @@ export function fetchFaves(user) {
       fetch(`http://localhost:3000/favorites/${user}`, {
         "method": "GET",
         "headers": {
+            "Accept": 'application/json',
             "Content-Type" : "application/json"
         }
     })
@@ -23,9 +24,7 @@ export function createFave(data){
     })
 }
 
-export const logoutUser = () => ({
+export const logoutUserFaves = () => ({
     type: 'CLEAR_FAVES',
-    user: {},
-    token: "",
-    loggedIn: false
+    recipes: []
 })
