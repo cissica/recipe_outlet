@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Recipe from "../component/Recipe";
 import { fetchRecipes} from '../actions/RecipesActions';
 import { createFave } from '../actions/FavesActions'
-// import { createFave } from '../actions/FavesActions'
 
 class RecipeContainer extends Component {
     state = {

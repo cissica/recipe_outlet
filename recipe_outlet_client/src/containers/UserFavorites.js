@@ -31,7 +31,7 @@ const UserFavorites = (props) => {
           const currentUserId = props.user.id
           props.fetchFaves(currentUserId)
         }
-      }, )
+      }, [])
     
 
     const handleClick = e => {
@@ -67,7 +67,6 @@ const UserFavorites = (props) => {
          );
     
 }
-
 
 function mapStateToProps(state){
     

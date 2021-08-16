@@ -4,7 +4,7 @@ const Faves = ({faves}) => {
     
     return ( 
         <div>
-            {faves.map(({title, id, servings, time, ingredients, instructions}) => (
+            {faves && faves.map(({title, id, servings, time, ingredients, instructions}) => (
                 <div className="recipe-preview" key={id}>
                     <h2>{title}</h2>
                     <p>Servings: {servings}</p>
@@ -16,6 +16,7 @@ const Faves = ({faves}) => {
                     <p>Instructions: {instructions !== null ? parse(instructions) : instructions}</p> 
                 </div>
             ))}
+            {!faves && <h1>Looks like you don't have any favorites yet.</h1>}
         </div>
      );
 }
