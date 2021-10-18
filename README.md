@@ -1,6 +1,7 @@
 # GroceryRun
 
 Grocery Run is an application that allows users to view recipes and save them after they have created an account. 
+This application was created with a Rails API and React + Redux frontend. 
 
 ## Usage
 
