@@ -9,7 +9,7 @@ This application was created with a Rails API and React + Redux frontend.
 #run the api first
 rails s 
 
-#run the client side next
+#run the client side in different terminal next
 npm start
 
 #Follow local host link
